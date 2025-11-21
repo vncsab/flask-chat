@@ -15,7 +15,7 @@ a primitive but charming chat system put together with thoughts and prayers.
 - complete markdown support
 - emojis
 
-## how to run
+# how to run
 simply activate the virtual environment and run `app.py`
 
 windows
