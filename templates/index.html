@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>chat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+    <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it-emoji@3.0.0/dist/markdown-it-emoji.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
+    <script src="{{ url_for('static', filename='js/chat.js')}}" defer></script>
+</head>
+
+<body>
+    <div id="alerts" class="list-container">
+    </div>
+    <form id="auth-popup">
+        <div class="list-container">
+            <h1>auth</h1>
+            <input id="auth-username" type="text" placeholder="username">
+            <input id="auth-password" type="password" placeholder="password">
+            <div class="split-container">
+                <button type="button" onclick="login()">login</button>
+                <button type="button" onclick="register()">register</button>
+            </div>
+        </div>
+    </form>
+    <div class="app split-container">
+        <div class="list-container side">
+            <b>chat spaces</b>
+        </div>
+        <div class="list-container side">
+            <b>chat rooms</b>
+            <div id="chatrooms" class="list-container">
+            </div>
+        </div>
+        <div class="chat">
+            <div id="chatroom-title" class="title">
+            </div>
+            <div id="messages" class="list-container">
+            </div>
+            <input id="chat-input" onkeydown="send_message(event)" placeholder="type thy messáge!" disabled
+                autocomplete="off">
+        </div>
+        <div class="list-container side">
+            <b>users online</b>
+            <div class="user-list">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
